@@ -1,0 +1,43 @@
+﻿
+
+<h1>Entrar</h1>
+@if (TempData["erro"] != null)
+            {
+                <div class="alert alert-danger" >
+                    @TempData["erro"]
+                </div>
+            }
+
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="/Login/Entrar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            
+            <div class="form-group">
+                <label  class="control-label">Login</label>
+                <input name="login" type="text" class="form-control" />
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Senha</label>
+                <input  name="senha" type="password" class="form-control" />
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
